@@ -1,0 +1,12 @@
+body{
+	background-image: url('../img/fundo.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+*{
+	/* background-color: transparent; */
+	/* color: transparent; */
+    margin: 0;
+	padding: 0;
+}
