@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/main.css" type="text/css" />
+	<link rel="stylesheet" href="./css/home.css" type="text/css" />
 
 	<title>Ski Store Home</title>
 </head>
@@ -29,16 +30,37 @@
 						<input type="radio" name="sexo" id="sexoFeminino" value="Feminino"> <label
 							for="sexoFeminino">Feminino</label>
 					</div>
-					<div name="prod"><label for="prod1">Produto 1 : <input type="checkbox" name="prod1" id="prod1">
-							<span id="valorProd1"></span></label></div>
-					<div name="prod"><label for="prod2">Produto 2 : <input type="checkbox" name="prod2" id="prod2">
-							<span id="valorProd2"></span></label></div>
-					<div name="prod"><label for="prod3">Produto 3 : <input type="checkbox" name="prod3" id="prod3">
-							<span id="valorProd3"></span></label></div>
-					<div name="prod"><label for="prod4">Produto 4 : <input type="checkbox" name="prod4" id="prod4">
-							<span id="valorProd4"></span></label></div>
-					<div name="prod"><label for="prod5">Produto 5 : <input type="checkbox" name="prod5" id="prod5">
-							<span id="valorProd5"></span></label></div>
+					<div name="prod"><label for="prod1"><div class="card" style="width: 15rem;">
+						<img class="card-img-top" src="img/prod1.jpeg">
+						<div class="card-body">
+						  <p class="card-text">Produto 1, Valor:<span id="valorProd1"></span></p>
+						</div>
+					</div></div><input type="checkbox" name="prod1" id="prod1"></label>
+					<div name="prod"><label for="prod2"><div class="card" style="width: 15rem;">
+						<img class="card-img-top" src="img/prod2.jpeg">
+						<div class="card-body">
+						  <p class="card-text">Produto 2, Valor:<span id="valorProd2"></span></p>
+						</div>
+					</div></div><input type="checkbox" name="prod2" id="prod2"></label>
+					<div name="prod"><label for="prod3"><div class="card" style="width: 15rem;">
+						<img class="card-img-top" src="img/prod3.jpeg">
+						<div class="card-body">
+						  <p class="card-text">Produto 3, Valor:<span id="valorProd3"></span></p>
+						</div>
+					</div></div><input type="checkbox" name="prod3" id="prod3"></label>
+					<div name="prod"><label for="prod4"><div class="card" style="width: 15rem;">
+						<img class="card-img-top" src="img/prod4.jpeg">
+						<div class="card-body">
+						  <p class="card-text">Produto 4, Valor:<span id="valorProd4"></span></p>
+						</div>
+					</div></div><input type="checkbox" name="prod4" id="prod4"></label>
+					<div name="prod"><label for="prod5"><div class="card" style="width: 15rem;">
+						<img class="card-img-top" src="img/prod5.jpeg">
+						<div class="card-body">
+						  <p class="card-text">Produto 5, Valor:<span id="valorProd5"></span></p>
+						</div>
+					</div></div><input type="checkbox" name="prod5" id="prod5"></label>
+
 					<div>
 						<button class="btn btn-success mt-3" style="width: 200px" type="submit">Gerar Orçamento</button>
 					</div>

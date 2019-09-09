@@ -1,10 +1,23 @@
 <?php
+	define("ERROR", 'error.html');
+
 	if(isset($_GET['nome'])){
-		$nome = $_GET['nome'];
+		$nome = trim($_GET['nome']);
+		if (trim($nome)==='') {
+			redirect(ERROR);
+		}
 	} else {
-		echo "nao tem";
+		redirect(ERROR);
 	}
 	$string = $nome;
+
+
+	function redirect($url) {
+		ob_start();
+		header('Location: '.$url);
+		ob_end_flush();
+		die();
+	}
 ?>
 <html lang="en">
 <head>
