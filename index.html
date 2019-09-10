@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/main.css" type="text/css" />
-	<link rel="stylesheet" href="./css/home.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="./css/home.css" type="text/css" /> -->
 
 	<title>Ski Store Home</title>
 </head>
@@ -22,7 +22,7 @@
 				<h1>Bem vindo!</h1>
 			</div>
 			<div>
-				<form action="orcamento.php" method="GET">
+				<form action="orcamento.php" method="POST">
 					<label for="nomeUsuario">Nome: </label>
 					<input type="text" name="nome" id="nomeUsuario" placeholder="Digite seu nome">
 					<div>Sexo: <input type="radio" name="sexo" id="sexoMasculino" value="Masculino"> <label
@@ -33,31 +33,31 @@
 					<div name="prod"><label for="prod1"><div class="card" style="width: 15rem;">
 						<img class="card-img-top" src="img/prod1.jpeg">
 						<div class="card-body">
-						  <p class="card-text">Produto 1, Valor:<span id="valorProd1"></span></p>
+						  <p class="card-text">Produto 1, Valor <span id="valorProd1"></span></p>
 						</div>
-					</div></div><input type="checkbox" name="prod1" id="prod1"></label>
+					</div></div><input type="checkbox" name="prod1" id="prod1" ></label>
 					<div name="prod"><label for="prod2"><div class="card" style="width: 15rem;">
 						<img class="card-img-top" src="img/prod2.jpeg">
 						<div class="card-body">
-						  <p class="card-text">Produto 2, Valor:<span id="valorProd2"></span></p>
+						  <p class="card-text">Produto 2, Valor <span id="valorProd2"></span></p>
 						</div>
 					</div></div><input type="checkbox" name="prod2" id="prod2"></label>
 					<div name="prod"><label for="prod3"><div class="card" style="width: 15rem;">
 						<img class="card-img-top" src="img/prod3.jpeg">
 						<div class="card-body">
-						  <p class="card-text">Produto 3, Valor:<span id="valorProd3"></span></p>
+						  <p class="card-text">Produto 3, Valor <span id="valorProd3"></span></p>
 						</div>
 					</div></div><input type="checkbox" name="prod3" id="prod3"></label>
 					<div name="prod"><label for="prod4"><div class="card" style="width: 15rem;">
 						<img class="card-img-top" src="img/prod4.jpeg">
 						<div class="card-body">
-						  <p class="card-text">Produto 4, Valor:<span id="valorProd4"></span></p>
+						  <p class="card-text">Produto 4, Valor <span id="valorProd4"></span></p>
 						</div>
 					</div></div><input type="checkbox" name="prod4" id="prod4"></label>
 					<div name="prod"><label for="prod5"><div class="card" style="width: 15rem;">
 						<img class="card-img-top" src="img/prod5.jpeg">
 						<div class="card-body">
-						  <p class="card-text">Produto 5, Valor:<span id="valorProd5"></span></p>
+						  <p class="card-text">Produto 5, Valor <span id="valorProd5"></span></p>
 						</div>
 					</div></div><input type="checkbox" name="prod5" id="prod5"></label>
 
@@ -83,7 +83,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script src="./js/index.js"></script>
+	<script src="js/index.js"></script>
 
 </body>
 

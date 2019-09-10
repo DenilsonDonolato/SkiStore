@@ -1,8 +1,15 @@
-const valorProdutos = [15,20,30,45,50];
+const valorProdutos = [100,50,75,80,150];
 let prod = document.getElementsByName('prod');
 
 for (let i = 1; i <= prod.length; i++) {
-	document.getElementById('valorProd'+i).innerHTML = valorProdutos[i-1];
+    document.getElementById('valorProd'+i).innerHTML = numberToReal(valorProdutos[i-1]);
+    document.getElementById('prod'+i).setAttribute("Value",valorProdutos[i-1])
+}
+
+function numberToReal(numero) {
+    var numero = numero.toFixed(2).split('.');
+    numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
+    return numero.join(',');
 }
 
 //document.getElementById('prod1').innerHTML = vendedor;
