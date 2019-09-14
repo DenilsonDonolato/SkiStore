@@ -1,6 +1,0 @@
-Nome: Allan
-Produto 1: R$ 100,00.
-Produto 2: R$50,00.
-Produto 5: 150,00.
-Valor Total: R$ 300,00
-Válido até 16-09-2019
