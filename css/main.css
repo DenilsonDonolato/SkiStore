@@ -10,3 +10,13 @@ body{
     margin: 0;
 	padding: 0;
 }
+
+#DivProd1{
+	position: absolute;
+    top: auto;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    width: 100%;
+    background-color:#004085;
+}

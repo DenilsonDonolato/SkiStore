@@ -12,4 +12,11 @@ function numberToReal(numero) {
     return numero.join(',');
 }
 
+function atLeastOneRadio() {
+    return ($('input[type=radio]:checked').size() > 0);
+}
+
+function validarForm() {
+    return false;
+}
 //document.getElementById('prod1').innerHTML = vendedor;
