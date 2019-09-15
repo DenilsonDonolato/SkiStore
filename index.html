@@ -23,9 +23,10 @@
 				
 			
 		<h1>Bem vindo!</h1>
+		<h4>Qualidade mais alta que as montanhas!</h4>
+		<h4>Preços mais baixos que os vales!</h4>
 
-
-		<form action="orcamento.php" method="POST" class="needs-validation" onsubmit=validarForm()>
+		<form action="orcamento.php" method="POST" class="was-validated">
 			
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="nomeUsuario">Nome: </label>
@@ -50,7 +51,7 @@
 			<label for="prod1" style="display: inline-block;">
 				<div name="prod">
 						<div class="card" style="width: 15rem;">
-							<img class="card-img-top" src="img/prod1.jpeg">
+							<img class="card-img-top" src="img/prod1.jpg">
 							<div class="card-body">
 								<p class="card-text">Bota Rossignol Alltrack 90, Valor <span id="valorProd1"></span></p>
 							</div>
@@ -64,7 +65,7 @@
 			<label for="prod2" style="display: inline-block;">
 				<div class="card" style="width: 15rem;">
 					<div name="prod">
-						<img class="card-img-top" src="img/prod2.jpeg" height"50">
+						<img class="card-img-top" src="img/prod2.jpg">
 						<div class="card-body">
 						  <p class="card-text">Bastão Leki Micro Vario Carbon, Valor <span id="valorProd2"></span></p>
 						</div>
@@ -78,9 +79,9 @@
 		<label for="prod3" style="display: inline-block;">
 			<div name="prod">
 				<div class="card" style="width: 15rem;">
-					<img class="card-img-top" src="img/prod3.jpeg">
+					<img class="card-img-top" src="img/prod3.jpg">
 					<div class="card-body">
-						<p class="card-text">Esqui Head Power Instinct Ti Pro+PRD 12 GW, Valor <span id="valorProd3"></span></p>
+						<p class="card-text">Esqui Head Power Instinct, Valor <span id="valorProd3"></span></p>
 					</div>
 				</div>
 			</div>
@@ -92,9 +93,9 @@
 		<label for="prod4" style="display: inline-block;">
 			<div name="prod">
 					<div class="card" style="width: 15rem;">
-						<img class="card-img-top" src="img/prod4.jpeg">
+						<img class="card-img-top" src="img/prod4.jpg">
 						<div class="card-body">
-							<p class="card-text">Snowboard Burton After School Special, Valor <span id="valorProd4"></span></p>
+							<p class="card-text">Snowboard Burton After School , Valor <span id="valorProd4"></span></p>
 						</div>
 					</div>
 			</div>
@@ -105,13 +106,25 @@
 		<label for="prod5">
 			<div name="prod">
 				<div class="card" style="width: 15rem;">
-					<img class="card-img-top" src="img/prod5.jpeg">
+					<img class="card-img-top" src="img/prod5.jpg">
 					<div class="card-body">
 						<p class="card-text">Trenó Tsl Outdoor Weez 2 Places, Valor <span id="valorProd5"></span></p>
 					</div>
 				</div>
 			</div>
 			<input type="checkbox" name="prod5" id="prod5">
+		</label>
+
+		<label for="prod6">
+			<div name="prod">
+				<div class="card" style="width: 15rem;">
+					<img class="card-img-top" src="img/prod6.jpg">
+					<div class="card-body">
+						<p class="card-text">Capacete Head Stivot, Valor <span id="valorProd6"></span></p>
+					</div>
+				</div>
+			</div>
+			<input type="checkbox" name="prod6" id="prod6">
 		</label>
 
 		<div class="form-group row">
@@ -149,26 +162,6 @@
 		crossorigin="anonymous"></script>
 
 	<script src="js/index.js"></script>
-	<script>
-		(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      // Get the forms we want to add validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-
-	</script>
 
 </body>
 

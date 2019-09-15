@@ -7,6 +7,7 @@
 	$ano = date("Y");
 	$validadeOrcamento = date('d-m-Y', strtotime('+1 week'));
 	$dataOrcamento = date('d-m-Y');
+	$horaOrcamento = date('H-i');
 
 	if(isset($_POST['nome'])){
 		$nome = trim($_POST['nome']);
@@ -43,16 +44,49 @@
 	}else {
 		$produto5=0;
 	}
+	if (isset($_POST['prod6'])){
+		$produto6=$_POST['prod6'];
+	}else {
+		$produto6=0;
+	}
 
 	if (isset($_POST['sexo'])){
 		$sexo=$_POST['sexo'];
 	}else {
 		$sexo="Masculino";
 	}
-	
+
 	$totalPedido = 0;
-	$valorProd1 = 15;
-	$totalPedido = $produto1+$produto2+$produto3+$produto4+$produto5;
+	$totalPedido = $produto1+$produto2+$produto3+$produto4+$produto5+$produto6;
+	$tipoPagamento = "";
+	if (isset($_POST['formaPgto'])) {
+		$desconto = $_POST['formaPgto'];
+		switch ($desconto) {
+			case '1':
+				$tipoPagamento = "A vista com desconto de 10%";
+				$descontoPerc = 0.1;
+				$totalPedido *= (1-$descontoPerc);
+				break;
+
+			case '2':
+				$descontoPerc = 0;
+				$totalPedido *= (1-$descontoPerc);
+				$tipoPagamento = "Em 2x parcelas sem juros.</p>
+								<p>Valor da parcela: R$ ".(number_format($totalPedido/2,2,",",".")).".";
+				break;
+
+			case '6':
+				$descontoPerc = -0.13;//Juros
+				$totalPedido *= (1-$descontoPerc);
+				$tipoPagamento = "Em 6x parcelas</p>
+								<p>Valor da parcela: R$ ".(number_format($totalPedido/6,2,",",".")).".";
+				break;
+			
+			default:
+				redirect(ERROR);
+				break;
+		}
+	}
 
 	function redirect($url) {
 		ob_start();
@@ -64,40 +98,69 @@
 	$escolha ="";
 
 	if ($produto1>0) {
-		$escolha.="Você selecionou Bota Rossignol Alltrack 90, no valor de ".number_format($produto1,2,",",".").".</br>";
+		$escolha.="Você selecionou Bota Rossignol Alltrack 90, no valor de R$ ".number_format($produto1,2,",",".").".</br>";
 	}
 	if ($produto2>0) {
-		$escolha.="Você selecionou Bastão Leki Micro Vario Carbon, no valor de ".number_format($produto2,2,",",".").".</br>";
+		$escolha.="Você selecionou Bastão Leki Micro Vario Carbon, no valor de R$ ".number_format($produto2,2,",",".").".</br>";
 	}
 	if ($produto3>0) {
-		$escolha.="Você selecionou Esqui Head Power Instinct Ti Pro+PRD 12 GW, no valor de ".number_format($produto3,2,",",".").".</br>";
+		$escolha.="Você selecionou Esqui Head Power Instinct, no valor de R$ ".number_format($produto3,2,",",".").".</br>";
 	}
 	if ($produto4>0) {
-		$escolha.="Você selecionou Snowboard Burton After School Special, no valor de ".number_format($produto4,2,",",".").".</br>";
+		$escolha.="Você selecionou Snowboard Burton After School, no valor de R$".number_format($produto4,2,",",".").".</br>";
 	}
 	if ($produto5>0) {
-		$escolha.="Você selecionou Trenó Tsl Outdoor Weez 2 Places, no valor de ".number_format($produto5,2,",",".").".";
+		$escolha.="Você selecionou Trenó Tsl Outdoor Weez 2 Places, no valor de R$ ".number_format($produto5,2,",",".").".</br>";
+	}
+	if ($produto6>0) {
+		$escolha.="Capacete Head Stivot, no valor de R$ ".number_format($produto6,2,",",".").".";
 	}
 
-	$fp = fopen("orcamento-".$nome."-".$dataOrcamento.".txt", "w");
+	$fp = fopen("orcamento-".$nome."-".$dataOrcamento."-".$horaOrcamento.".txt", "w");
 	$arquivo = "";
 	$arquivo.="Nome: ".$nome."\n";
 	if ($produto1>0) {
-		$arquivo.="Produto 1: R$ ".number_format($produto1,2,",",".").".\n";
+		$arquivo.="Bota Rossignol Alltrack 90: R$ ".number_format($produto1,2,",",".")."\n";
 	}
 	if ($produto2>0) {
-		$arquivo.="Produto 2: R$".number_format($produto2,2,",",".").".\n";
+		$arquivo.="Bastão Leki Micro Vario Carbon: R$".number_format($produto2,2,",",".")."\n";
 	}
 	if ($produto3>0) {
-		$arquivo.="Produto 3: ".number_format($produto3,2,",",".").".\n";
+		$arquivo.="Esqui Head Power Instinct: ".number_format($produto3,2,",",".")."\n";
 	}
 	if ($produto4>0) {
-		$arquivo.="Produto 4: ".number_format($produto4,2,",",".").".\n";
+		$arquivo.="Você selecionou Snowboard Burton After School: ".number_format($produto4,2,",",".")."\n";
 	}
 	if ($produto5>0) {
-		$arquivo.="Produto 5: ".number_format($produto5,2,",",".").".\n";
+		$arquivo.="Você selecionou Trenó Tsl Outdoor Weez 2 Places: ".number_format($produto5,2,",",".")."\n";
+	}
+	if ($produto6>0) {
+		$arquivo.="Capacete Head Stivot: ".number_format($produto6,2,",",".")."\n";
 	}
 	$arquivo.="Valor Total: R$ ".number_format($totalPedido,2,",",".")."\n";
+	switch ($desconto) {
+		case '2':
+			$arquivo.="Valor da parcela: R$ ".number_format($totalPedido/2,2,",",".")."\n";
+			break;
+		
+		case '6':
+			$arquivo.="Valor da parcela: R$ ".number_format($totalPedido/6,2,",",".")."\n";
+			break;
+	}
+	switch ($desconto) {
+		case '1':
+			$arquivo.="Forma de pagamento: A vista com desconto de 10%\n";
+			break;
+		
+		case '2':
+			$arquivo.="Forma de pagamento: Em 2x parcelas sem juros\n";
+			break;
+		
+		case '6':
+			$arquivo.="Forma de pagamento: Em 6x parcelas\n";
+			break;
+	}
+
 	$arquivo.="Válido até ".$validadeOrcamento;
 	fwrite($fp, $arquivo);
 	fclose($fp);
@@ -145,6 +208,7 @@
 		<div class="card-board"><h1>Orçamento</h1>
 			<p>Olá, <?php echo $nome;?>!</p>
 			<p><?php echo $escolha;?></p>
+			<p>Forma de pagamento selecionada: <?php echo $tipoPagamento;?></p>
 			<p>Seu orçamento ficou no valor de R$ <?php echo number_format($totalPedido,2,",","."); ?>.</p>
 			<p>Orçamento válido até <?php  echo $validadeOrcamento;?>.</p>
 			<p>Jundiaí, <?php  echo $dia." de ".$mes." de ".$ano."."; ?></p>
